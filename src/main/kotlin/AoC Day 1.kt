@@ -1,4 +1,5 @@
 import java.io.File
+import ProgramTimer
 
 fun findPair(input: Array<Int>, target: Int): Int {
     val storedNums: BooleanArray = BooleanArray(target) { false }
@@ -30,9 +31,8 @@ fun processFile(): Array<Int> {
 }
 
 fun main() {
-    val startTime = System.nanoTime()
+    val timer = ProgramTimer()
     val input: Array<Int> = processFile()
     println(findTriplet(input, 2020))
-    val endTime = System.nanoTime() - startTime
-    println("Time: ${endTime * 0.000001}ms")
+    timer.endTimer()
 }
