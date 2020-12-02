@@ -98,3 +98,7 @@ outTmp/
 .gradle/6.6.1/executionHistory/executionHistory.bin
 .gradle/6.6.1/executionHistory/executionHistory.lock
 *.bin
+*.bin
+*.lock
+*.lock
+*.bin
