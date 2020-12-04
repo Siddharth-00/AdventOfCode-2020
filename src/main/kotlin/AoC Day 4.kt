@@ -1,29 +1,3 @@
-fun byr(s: String): Boolean = s.toInt() in 1920..2002
-fun iyr(s: String): Boolean = s.toInt() in 2010..2020
-fun eyr(s: String): Boolean = s.toInt() in 2020..2030
-fun hgt(s: String): Boolean {
-    return when (s.takeLast(2)) {
-        "cm" -> {
-            s.dropLast(2).toInt() in 150..193
-        }
-        "in" -> {
-            s.dropLast(2).toInt() in 59..76
-        }
-        else -> false
-    }
-}
-
-fun hcl(s: String): Boolean {
-    val regex = "#[0-9a-f]{6}".toRegex()
-    return s.matches(regex)
-}
-
-fun ecl(s: String): Boolean = s in listOf("amb", "blu", "brn", "gry", "grn", "hzl", "oth")
-fun pid(s: String): Boolean {
-    val regex = "\\d{9}".toRegex()
-    return s.matches(regex)
-}
-
 fun processPairs(): MutableList<Map<String, String>> {
     val output: MutableList<Map<String, String>> = mutableListOf()
     var currPassport: MutableMap<String, String> = mutableMapOf()
