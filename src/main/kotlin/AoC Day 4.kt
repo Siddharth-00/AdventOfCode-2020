@@ -8,8 +8,7 @@ fun processPairs(): MutableList<Map<String, String>> {
                 currPassport = mutableMapOf()
             }
             else -> {
-                val regex = "(\\w{3}):([\\w#]+)".toRegex()
-                regex.findAll(pairs).forEach { currPassport[it.destructured.component1()] = it.destructured.component2() }
+                "(\\w{3}):([\\w#]+)".toRegex().findAll(pairs).forEach { currPassport[it.destructured.component1()] = it.destructured.component2() }
             }
         }
     }
