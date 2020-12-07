@@ -5,6 +5,8 @@ class ReadInput(private val path: String) {
 
     fun readListOfStr() = readLines()
 
+    fun readGroupsStr() =  javaClass.classLoader.getResource(path).readText().split("\n\n").dropLast(1)
+
     fun readGrid() = readLines().map { it.toCharArray() }.toTypedArray()
 }
 
