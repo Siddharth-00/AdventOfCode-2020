@@ -3,7 +3,7 @@ fun findCID(s: String): Int = Integer.parseInt(String(s.map { if (it == 'F' || i
 fun findMaxID(passes: List<String>): Int = passes.map { findCID(it) }.maxOrNull()!!
 
 fun findSeat(cids: List<Int>): Int {
-    for (i in 0..(127*8 + 7)) if(i - 1 in cids && i !in cids && i + 1 in cids) return i
+    for (i in 0..(127 * 8 + 7)) if (i - 1 in cids && i !in cids && i + 1 in cids) return i
     return 0
 }
 
