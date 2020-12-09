@@ -3,6 +3,8 @@ class ReadInput(private val path: String) {
 
     fun readListOfInts() = readLines().map { it.toInt() }.toIntArray()
 
+    fun readListOfBigInts() = readLines().map { it.toBigInteger() }.toTypedArray()
+
     fun readListOfStr() = readLines()
 
     fun readGroupsStr() = javaClass.classLoader.getResource(path).readText().split("\n\n").dropLast(1)
