@@ -102,3 +102,5 @@ outTmp/
 *.lock
 *.lock
 *.bin
+.idea/misc.xml
+build.gradle.kts
