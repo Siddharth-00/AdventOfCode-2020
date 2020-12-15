@@ -42,21 +42,19 @@ class Position2(var i: Int, var j: Int, var degrees: Int, var wayI: Int = 10, va
     }
 }
 
-
 fun findDistance1(input: List<String>): Int {
     val position = Position(0, 0, 0)
-    //println("(i, j): (${position.i}, ${position.j}) Degrees: ${position.degrees} ")
+    // println("(i, j): (${position.i}, ${position.j}) Degrees: ${position.degrees} ")
     input.forEach { position.processCommand(it) }
     return position.distance()
 }
 
 fun findDistance2(input: List<String>): Int {
     val position = Position2(0, 0, 0)
-    //println("(i, j): (${position.i}, ${position.j}) Degrees: ${position.degrees} ")
+    // println("(i, j): (${position.i}, ${position.j}) Degrees: ${position.degrees} ")
     input.forEach { position.processCommand(it) }
     return position.distance()
 }
-
 
 fun main() {
     val input = ReadInput("input12.txt").readListOfStr()

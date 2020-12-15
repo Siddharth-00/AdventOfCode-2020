@@ -5,13 +5,13 @@ fun findNextBus(input: List<String>): Int {
     val n = input[0].toInt()
     val buses = input[1].split(",")
     val fastest = buses.minByOrNull {
-        if(it == "x") 1000000
+        if (it == "x") 1000000
         else {
             val bus = it.toInt()
-            n/bus * bus + bus - n
+            n / bus * bus + bus - n
         }
     }!!.toInt()
-    return (n/fastest * fastest + fastest - n) * fastest
+    return (n / fastest * fastest + fastest - n) * fastest
 }
 
 fun multInv(a: BigDecimal, b: BigInteger): BigDecimal {
@@ -49,12 +49,11 @@ fun findMinTime(input: List<String>): BigInteger {
     val times: MutableMap<Int, Int> = mutableMapOf()
     var count = 0
     buses.forEach {
-        if(it != "x") times[it.toInt()] = (it.toInt() - count)%it.toInt()
+        if (it != "x") times[it.toInt()] = (it.toInt() - count) % it.toInt()
         count += 1
     }
     return chineseRemainder(times.keys.toIntArray(), times.values.toIntArray())
 }
-
 
 fun main() {
     val input = ReadInput("input13.txt").readListOfStr()

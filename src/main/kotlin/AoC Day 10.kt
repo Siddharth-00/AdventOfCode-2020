@@ -5,15 +5,15 @@ fun part1(input: IntArray): Int {
     var threeDiff = 0
     val sortedInput = input.plus(0).sorted()
     sortedInput.zip(sortedInput.drop(1)).forEach {
-        if(it.second - it.first == 1) oneDiff += 1
-        if(it.second - it.first == 3) threeDiff += 1
+        if (it.second - it.first == 1) oneDiff += 1
+        if (it.second - it.first == 3) threeDiff += 1
     }
     threeDiff += 1
     return oneDiff * threeDiff
 }
 
 fun part2(input: List<Int>, memo: Array<BigInteger>): BigInteger {
-    for (n in input) memo[n] += memo[n+1] + memo[n+2] + memo[n+3]
+    for (n in input) memo[n] += memo[n + 1] + memo[n + 2] + memo[n + 3]
     return memo[0]
 }
 
