@@ -1,6 +1,5 @@
 import java.math.BigInteger
 import java.util.*
-import kotlin.math.absoluteValue
 
 class Tile(var tile: List<String>, val id: Int) {
     var edges = mutableListOf<String>()
@@ -65,39 +64,36 @@ fun findCorners(tiles: List<Tile>): BigInteger {
     val edges: MutableMap<String, Int> = mutableMapOf()
     tiles.forEach {
         it.edges.forEach { e ->
-            if(e in edges) {
+            if (e in edges) {
                 edges[e] = edges[e]!! + 1
-            }
-            else if(e.reversed() in edges) {
+            } else if (e.reversed() in edges) {
                 edges[e.reversed()] = edges[e.reversed()]!! + 1
-            }
-            else {
+            } else {
                 edges[e.reversed()] = 1
             }
         }
     }
-    println(tiles.filter { it.edges.count { e -> edges.getOrDefault(e, 2) > 1 && edges.getOrDefault(e.reversed(), 2) > 1 } == 2}.map { it.id.toBigInteger() })
-    return tiles.filter { it.edges.count { e -> edges.getOrDefault(e, 2) > 1 && edges.getOrDefault(e.reversed(), 2) > 1 } == 2}.map { it.id.toBigInteger() }.reduce { a,b -> a * b}
+    println(tiles.filter { it.edges.count { e -> edges.getOrDefault(e, 2) > 1 && edges.getOrDefault(e.reversed(), 2) > 1 } == 2 }.map { it.id.toBigInteger() })
+    return tiles.filter { it.edges.count { e -> edges.getOrDefault(e, 2) > 1 && edges.getOrDefault(e.reversed(), 2) > 1 } == 2 }.map { it.id.toBigInteger() }.reduce { a, b -> a * b }
 }
 
 fun findPair(tiles: List<Tile>, edge: String, curr: Tile, covered: MutableSet<Tile>): Tile? {
-    for(it in tiles) {
-        if(it !in covered && it.edges.contains(edge) && it != curr) return it
+    for (it in tiles) {
+        if (it !in covered && it.edges.contains(edge) && it != curr) return it
         it.rotate()
         it.rotate()
-        if(it !in covered && it.edges.contains(edge) && it != curr) return it
+        if (it !in covered && it.edges.contains(edge) && it != curr) return it
         it.rotate()
         it.rotate()
-        if(it !in covered && it.edges.contains(edge) && it != curr) return it
+        if (it !in covered && it.edges.contains(edge) && it != curr) return it
         it.flipUp()
-        if(it !in covered && it.edges.contains(edge) && it != curr) return it
+        if (it !in covered && it.edges.contains(edge) && it != curr) return it
         it.flipUp()
         it.flipSide()
-        if(it !in covered && it.edges.contains(edge) && it != curr) return it
+        if (it !in covered && it.edges.contains(edge) && it != curr) return it
         it.flipSide()
     }
     return null
-
 }
 
 fun opposite(a: Int): Int {
