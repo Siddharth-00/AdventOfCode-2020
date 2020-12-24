@@ -63,7 +63,6 @@ fun simulate(times: Int, extra: Int) {
         val sliceHead = curr.next
         val sliceTail = curr.traverse(3)
         curr.next = sliceTail.next
-        sliceTail.next = null
         val destination = nodes[curr.nextLowest(sliceHead !!, extra)]
         sliceTail.next = destination !!.next
         destination.next = sliceHead
